@@ -23,9 +23,9 @@ frame_corpo = Frame(janela, width=400, height=325)
 frame_corpo.grid(row=1, column=0)
 
 # funcao de calculo
-def calc():
+def input_values(event):
     resultado =eval('9/9')
-    app_label.set(resultado)
+    valor_texto.set(resultado)
 
 
 
@@ -44,7 +44,7 @@ app_label.place(x=0,y=0)
 # primeira fileira
 b_1 = Button(frame_corpo, text="c", width="12", height=3)
 b_1.place(x=0,y=0) 
-b_2 = Button(frame_corpo, text="%", width="12", height=3)
+b_2 = Button(frame_corpo, text="%", width="12", height=3, command=lambda: input_values('%'))
 b_2.place(x=130,y=0) 
 b_3 = Button(frame_corpo, text="/", width="12", height=3)
 b_3.place(x=260,y=0)
@@ -85,7 +85,7 @@ b_20 = Button(frame_corpo, text="0", width="8", height=2)
 b_20.place(x=0, y=220)
 b_21 = Button(frame_corpo, text=",", width="8", height=2)
 b_21.place(x=100, y=220)
-b_22 = Button(frame_corpo, text="=", width="18", height=2)
+b_22 = Button(frame_corpo, text="=", width="18", height=2) 
 b_22.place(x=200, y=220)
 
 
@@ -100,7 +100,5 @@ for widget in frame_corpo.winfo_children():
 
 
 
-
-calc()
 janela.mainloop()
 
