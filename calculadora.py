@@ -22,12 +22,20 @@ frame_tela.config(bg=cor4)
 frame_corpo = Frame(janela, width=400, height=325)
 frame_corpo.grid(row=1, column=0)
 
+
+todos_valores = ''
+
 # funcao de calculo
 def input_values(event):
-    resultado =eval('9/9')
-    valor_texto.set(resultado)
+
+    global todos_valores
+    todos_valores = todos_valores + str(event)
+    valor_texto.set(todos_valores)
 
 
+def calc():
+    result = eval(todos_valores)
+    print(result)
 
 
 
@@ -42,50 +50,50 @@ app_label.place(x=0,y=0)
 #botoes de comando
 
 # primeira fileira
-b_1 = Button(frame_corpo, text="c", width="12", height=3)
+b_1 = Button(frame_corpo, text="c", command=lambda: input_values(''), width="12", height=3)
 b_1.place(x=0,y=0) 
-b_2 = Button(frame_corpo, text="%", width="12", height=3, command=lambda: input_values('%'))
+b_2 = Button(frame_corpo, text="%", command=lambda: input_values('%'), width="12", height=3)
 b_2.place(x=130,y=0) 
-b_3 = Button(frame_corpo, text="/", width="12", height=3)
+b_3 = Button(frame_corpo, text="/", command=lambda: input_values('/'), width="12", height=3)
 b_3.place(x=260,y=0)
 
 
 # segunda fileira
-b_8 = Button(frame_corpo, text="7", width="8", height=3)
+b_8 = Button(frame_corpo, command=lambda: input_values('7'), text="7", width="8", height=3)
 b_8.place(x=0,y=55) 
-b_9 = Button(frame_corpo, text="8", width="8", height=3)
+b_9 = Button(frame_corpo, command=lambda: input_values('8'), text="8", width="8", height=3)
 b_9.place(x=100,y=55) 
-b_10 = Button(frame_corpo, text="9", width="8", height=3)
+b_10 = Button(frame_corpo, command=lambda: input_values('9'), text="9", width="8", height=3)
 b_10.place(x=200 ,y=55) 
-b_11 = Button(frame_corpo, text="x", width="8", height=3)
+b_11 = Button(frame_corpo, command=lambda: input_values('x'), text="x", width="8", height=3)
 b_11.place(x=300 ,y=55)
 
 # terceira fileira
-b_12 = Button(frame_corpo, text="4", width="8", height=3)
+b_12 = Button(frame_corpo, command=lambda: input_values('4'), text="4", width="8", height=3)
 b_12.place(x=0, y=110)
-b_13 = Button(frame_corpo, text="5", width="8", height=3)
+b_13 = Button(frame_corpo, command=lambda: input_values('5'), text="5", width="8", height=3)
 b_13.place(x=100, y=110)
-b_14 = Button(frame_corpo, text="6", width="8", height=3)
+b_14 = Button(frame_corpo, command=lambda: input_values('6'), text="6", width="8", height=3)
 b_14.place(x=200, y=110)
-b_15 = Button(frame_corpo, text="-", width="8", height=3)
+b_15 = Button(frame_corpo, command=lambda: input_values('-'), text="-", width="8", height=3)
 b_15.place(x=300, y=110)
 
 # quarta fileira
-b_16 = Button(frame_corpo, text="1", width="8", height=3)
+b_16 = Button(frame_corpo, command=lambda: input_values('1'), text="1", width="8", height=3)
 b_16.place(x=0, y=165)
-b_17 = Button(frame_corpo, text="2", width="8", height=3)
+b_17 = Button(frame_corpo, command=lambda: input_values('2'), text="2", width="8", height=3)
 b_17.place(x=100, y=165)
-b_18 = Button(frame_corpo, text="3", width="8", height=3)
+b_18 = Button(frame_corpo, command=lambda: input_values('3'), text="3", width="8", height=3)
 b_18.place(x=200, y=165)
-b_19 = Button(frame_corpo, text="+", width="8", height=3)
+b_19 = Button(frame_corpo, command=lambda: input_values('+'), text="+", width="8", height=3)
 b_19.place(x=300, y=165)
 
 # quinta fileira
-b_20 = Button(frame_corpo, text="0", width="8", height=2)
+b_20 = Button(frame_corpo, command=lambda: input_values('0'), text="0", width="8", height=2)
 b_20.place(x=0, y=220)
-b_21 = Button(frame_corpo, text=",", width="8", height=2)
+b_21 = Button(frame_corpo, command=lambda: input_values(','), text=",", width="8", height=2)
 b_21.place(x=100, y=220)
-b_22 = Button(frame_corpo, text="=", width="18", height=2) 
+b_22 = Button(frame_corpo, command= calc, text="=", width="18", height=2) 
 b_22.place(x=200, y=220)
 
 
