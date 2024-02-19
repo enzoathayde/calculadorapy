@@ -34,9 +34,15 @@ def input_values(event):
 
 
 def calc():
+    global todos_valores
     result = eval(todos_valores)
-    print(result)
+    valor_texto.set(str(result))
 
+
+def clearscreen():
+    global todos_valores
+    todos_valores = ""
+    valor_texto.set("")
 
 
 # label
@@ -50,7 +56,7 @@ app_label.place(x=0,y=0)
 #botoes de comando
 
 # primeira fileira
-b_1 = Button(frame_corpo, text="c", command=lambda: input_values(''), width="12", height=3)
+b_1 = Button(frame_corpo, text="clean", command=clearscreen, width="12", height=3)
 b_1.place(x=0,y=0) 
 b_2 = Button(frame_corpo, text="%", command=lambda: input_values('%'), width="12", height=3)
 b_2.place(x=130,y=0) 
@@ -65,7 +71,7 @@ b_9 = Button(frame_corpo, command=lambda: input_values('8'), text="8", width="8"
 b_9.place(x=100,y=55) 
 b_10 = Button(frame_corpo, command=lambda: input_values('9'), text="9", width="8", height=3)
 b_10.place(x=200 ,y=55) 
-b_11 = Button(frame_corpo, command=lambda: input_values('x'), text="x", width="8", height=3)
+b_11 = Button(frame_corpo, command=lambda: input_values('*'), text="x", width="8", height=3)
 b_11.place(x=300 ,y=55)
 
 # terceira fileira
